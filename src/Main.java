@@ -9,17 +9,19 @@ public class Main {
         String inp = scan.nextLine();
         String[] inpS = inp.split(" ");
 
+        if (inpS.length != 3) throw new IOException("Wrong expression");
+
         HashMap<String, Integer> rome = new HashMap<String, Integer>();
-        rome.put("I", 1);
-        rome.put("II", 2);
-        rome.put("III", 3);
-        rome.put("IV", 4);
-        rome.put("V", 5);
-        rome.put("VI", 6);
-        rome.put("VII", 7);
-        rome.put("VIII", 8);
-        rome.put("IX", 9);
-        rome.put("X", 10);
+            rome.put("I", 1);
+            rome.put("II", 2);
+            rome.put("III", 3);
+            rome.put("IV", 4);
+            rome.put("V", 5);
+            rome.put("VI", 6);
+            rome.put("VII", 7);
+            rome.put("VIII", 8);
+            rome.put("IX", 9);
+            rome.put("X", 10);
 
         int arab1;          // первое число в выражении
 
