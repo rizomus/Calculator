@@ -2,26 +2,27 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) throws IOException {
-
-        Scanner scan = new Scanner(System.in);
+    public static void main(String[] args)throws IOException{
         System.out.println("Enter expression: ");
-        String inp = scan.nextLine();
-        String[] inpS = inp.split(" ");
-
+        Scanner s = new Scanner(System.in);
+        String inp = s.nextLine();
+        System.out.println(calc(inp));
+    }
+    public static String calc (String input) throws IOException {
+        String[] inpS = input.split(" ");
         if (inpS.length != 3) throw new IOException("Wrong expression");
 
         HashMap<String, Integer> rome = new HashMap<String, Integer>();
-            rome.put("I", 1);
-            rome.put("II", 2);
-            rome.put("III", 3);
-            rome.put("IV", 4);
-            rome.put("V", 5);
-            rome.put("VI", 6);
-            rome.put("VII", 7);
-            rome.put("VIII", 8);
-            rome.put("IX", 9);
-            rome.put("X", 10);
+        rome.put("I", 1);
+        rome.put("II", 2);
+        rome.put("III", 3);
+        rome.put("IV", 4);
+        rome.put("V", 5);
+        rome.put("VI", 6);
+        rome.put("VII", 7);
+        rome.put("VIII", 8);
+        rome.put("IX", 9);
+        rome.put("X", 10);
 
         int arab1;          // первое число в выражении
 
@@ -58,13 +59,10 @@ public class Main {
 
         if (rome.containsKey(inpS[0]) && rome.containsKey(inpS[2]) && ans > 0) {            // both digits roman
             String roman_ans = ArabToRome.calculate(ans);
-            System.out.println(roman_ans);
-        }
-        else if(!rome.containsKey(inpS[0]) && !rome.containsKey(inpS[2])){                  // both digits arab
-            System.out.println(ans);
-        }
-        else throw new IOException("Wrong expression");
+            return roman_ans;
+        } else if (!rome.containsKey(inpS[0]) && !rome.containsKey(inpS[2])) {                  // both digits arab
+            return Integer.toString(ans);
+        } else throw new IOException("Wrong expression");
 
+        }
     }
-
-}
